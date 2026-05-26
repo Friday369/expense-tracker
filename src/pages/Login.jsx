@@ -12,7 +12,7 @@ export default function Login({ setAuth }) {
     if (!email || !password) return setError('Please fill all fields')
     setLoading(true)
     try {
-      const res = await fetch('http://localhost:5000/login', {
+      const res = await fetch('https://spendwise-server-2wl0.onrender.com/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })

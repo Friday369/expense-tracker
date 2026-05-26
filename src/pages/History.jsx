@@ -11,13 +11,13 @@ export default function History({ user }) {
   const currency = user?.currency || '₹'
 
   useEffect(() => {
-    fetch('http://localhost:5000/expenses', {
+    fetch('https://spendwise-server-2wl0.onrender.com/expenses', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(r => r.json()).then(setExpenses)
   }, [])
 
   async function deleteExpense(id) {
-    await fetch(`http://localhost:5000/expenses/${id}`, {
+    await fetch(`https://spendwise-server-2wl0.onrender.com/expenses/${id}`, {
       method: 'DELETE',
       headers: { Authorization: `Bearer ${token}` }
     })

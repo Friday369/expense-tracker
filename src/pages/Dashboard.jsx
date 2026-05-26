@@ -12,14 +12,14 @@ export default function Dashboard({ user }) {
   const token = localStorage.getItem('token')
 
   useEffect(() => {
-    fetch('http://localhost:5000/expenses', {
+    fetch('https://spendwise-server-2wl0.onrender.com/expenses', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(r => r.json()).then(setExpenses)
   }, [])
 
   async function addExpense() {
     if (!name || !amount) return
-    const res = await fetch('http://localhost:5000/expenses', {
+    const res = await fetch('https://spendwise-server-2wl0.onrender.com/expenses', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify({ name, amount, category })
@@ -31,7 +31,7 @@ export default function Dashboard({ user }) {
   }
 
   async function deleteExpense(id) {
-    await fetch(`http://localhost:5000/expenses/${id}`, {
+    await fetch(`https://spendwise-server-2wl0.onrender.com/expenses/${id}`, {
       method: 'DELETE',
       headers: { Authorization: `Bearer ${token}` }
     })

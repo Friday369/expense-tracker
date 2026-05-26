@@ -14,7 +14,7 @@ export default function Signup({ setAuth }) {
     if (password.length < 6) return setError('Password must be at least 6 characters')
     setLoading(true)
     try {
-      const res = await fetch('http://localhost:5000/signup', {
+      const res = await fetch('https://spendwise-server-2wl0.onrender.com/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password })

@@ -9,7 +9,7 @@ export default function Analytics({ user }) {
   const currency = user?.currency || '₹'
 
   useEffect(() => {
-    fetch('http://localhost:5000/expenses', {
+    fetch('https://spendwise-server-2wl0.onrender.com/expenses', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(r => r.json()).then(setExpenses)
   }, [])

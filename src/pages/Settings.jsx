@@ -14,7 +14,7 @@ export default function Settings({ user, setUser }) {
     setSuccess('')
     setError('')
     try {
-      const res = await fetch('http://localhost:5000/settings', {
+      const res = await fetch('https://spendwise-server-2wl0.onrender.com/settings', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ name, currency, theme })
